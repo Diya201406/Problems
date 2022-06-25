@@ -1,0 +1,19 @@
+from collections import Counter
+import sys
+
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        c=Counter(s)
+        print(c)
+        l=[]
+        for k,v in c.items():
+            if v==1:
+                l.append(k)
+        if len(l)==0:
+            return -1
+        m=len(s)
+        for i in l:
+            
+            if s.index(i)<m:
+                m=s.index(i)
+        return m
