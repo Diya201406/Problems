@@ -1,0 +1,14 @@
+class Solution:
+    def getSumAbsoluteDifferences(self, nums: List[int]) -> List[int]:
+        s=sum(nums)
+        lsum=0
+        l=0
+        ans=[]
+        for i in range(len(nums)):
+            rsum=s-lsum-nums[i]
+            r=len(nums)-l-1
+            a=(l*nums[i]-lsum)+(rsum-r*nums[i])
+            ans.append(a)
+            lsum+=nums[i]
+            l+=1
+        return ans
